@@ -1,0 +1,474 @@
+// BankEase Global Design System & Variables
+:root {
+  --primary: #0F172A;
+  --primary-light: #1E293B;
+  --primary-accent: #2563EB;
+  --primary-accent-hover: #1D4ED8;
+  --secondary: #64748B;
+  
+  --emerald: #059669;
+  --emerald-light: #D1FAE5;
+  --emerald-dark: #047857;
+  
+  --rose: #E11D48;
+  --rose-light: #FFE4E6;
+  
+  --amber: #D97706;
+  --amber-light: #FEF3C7;
+  
+  --blue: #2563EB;
+  --blue-light: #DBEAFE;
+  
+  --bg-main: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F1F5F9;
+  --border: #E2E8F0;
+  --border-focus: #94A3B8;
+  
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+  --text-white: #FFFFFF;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.04);
+  
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.bankease-app {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Material Symbols alignment */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-size: 20px;
+}
+
+/* Base Headings & Links */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--primary-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  &:hover {
+    color: var(--primary-accent-hover);
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  outline: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &.btn-primary {
+    background-color: var(--primary-accent);
+    color: var(--text-white);
+    border-color: var(--primary-accent);
+    &:hover:not(:disabled) {
+      background-color: var(--primary-accent-hover);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+
+  &.btn-dark {
+    background-color: var(--primary);
+    color: var(--text-white);
+    &:hover:not(:disabled) {
+      background-color: var(--primary-light);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: var(--bg-hover);
+    color: var(--text-main);
+    border-color: var(--border);
+    &:hover:not(:disabled) {
+      background-color: #E2E8F0;
+    }
+  }
+
+  &.btn-outline {
+    background-color: transparent;
+    color: var(--text-main);
+    border-color: var(--border);
+    &:hover:not(:disabled) {
+      background-color: var(--bg-hover);
+      border-color: var(--text-muted);
+    }
+  }
+
+  &.btn-success {
+    background-color: var(--emerald);
+    color: var(--text-white);
+    &:hover:not(:disabled) {
+      background-color: var(--emerald-dark);
+    }
+  }
+
+  &.btn-danger {
+    background-color: var(--rose);
+    color: var(--text-white);
+    &:hover:not(:disabled) {
+      background-color: #BE123C;
+    }
+  }
+
+  &.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8125rem;
+  }
+
+  &.btn-lg {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+/* Cards */
+.be-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease;
+
+  &.be-card-hover:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .be-card-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 0;
+    }
+  }
+
+  .be-card-body {
+    padding: 24px;
+  }
+
+  .be-card-footer {
+    padding: 14px 24px;
+    background-color: var(--bg-main);
+    border-top: 1px solid var(--border);
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+  }
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 18px;
+
+  label.form-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 6px;
+  }
+
+  .form-control, .form-select {
+    width: 100%;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-main);
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    outline: none;
+
+    &:focus {
+      border-color: var(--primary-accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    &.is-invalid {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+    }
+  }
+
+  .input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .icon-prefix {
+      position: absolute;
+      left: 12px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .form-control {
+      padding-left: 40px;
+    }
+
+    .btn-toggle-visibility {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      &:hover {
+        color: var(--text-main);
+      }
+    }
+  }
+
+  .invalid-feedback {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--rose);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+}
+
+/* Status Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+
+  &.badge-success, &.badge-ACTIVE, &.badge-SUCCESS, &.badge-APPROVED, &.badge-PAID, &.badge-VERIFIED {
+    background-color: var(--emerald-light);
+    color: var(--emerald-dark);
+  }
+
+  &.badge-danger, &.badge-FAILED, &.badge-BLOCKED, &.badge-REJECTED, &.badge-CLOSED, &.badge-OVERDUE {
+    background-color: var(--rose-light);
+    color: var(--rose);
+  }
+
+  &.badge-warning, &.badge-PENDING, &.badge-UNDER_REVIEW, &.badge-UNPAID {
+    background-color: var(--amber-light);
+    color: var(--amber);
+  }
+
+  &.badge-info, &.badge-REVERSED, &.badge-MATURED, &.badge-CUSTOMER {
+    background-color: var(--blue-light);
+    color: var(--blue);
+  }
+
+  &.badge-officer, &.badge-BANK_OFFICER {
+    background-color: #EDE9FE;
+    color: #6D28D9;
+  }
+
+  &.badge-admin, &.badge-ADMIN {
+    background-color: #FEF2F2;
+    color: #991B1B;
+  }
+}
+
+/* Tables */
+.be-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card);
+
+  table.be-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.875rem;
+
+    thead {
+      background-color: var(--bg-hover);
+      border-bottom: 1px solid var(--border);
+
+      th {
+        padding: 12px 18px;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid var(--border);
+        transition: background-color 0.12s ease;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: #F8FAFC;
+        }
+
+        td {
+          padding: 14px 18px;
+          vertical-align: middle;
+          color: var(--text-main);
+        }
+      }
+    }
+  }
+}
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  padding: 16px;
+
+  .modal-container {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    width: 100%;
+    max-width: 540px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalSlideIn 0.2s ease-out;
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h3 {
+        font-size: 1.15rem;
+        margin: 0;
+      }
+
+      .btn-close {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        padding: 4px;
+        &:hover {
+          color: var(--text-main);
+        }
+      }
+    }
+
+    .modal-body {
+      padding: 24px;
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+      background-color: var(--bg-main);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}

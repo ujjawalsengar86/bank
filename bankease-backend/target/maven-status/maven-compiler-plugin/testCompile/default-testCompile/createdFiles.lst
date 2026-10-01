@@ -1,0 +1,6 @@
+com\bankease\controller\AuthControllerIntegrationTest.class
+com\bankease\service\AuthServiceTest.class
+com\bankease\service\LoanServiceTest.class
+com\bankease\service\AccountServiceTest.class
+com\bankease\service\TransferServiceTest.class
+com\bankease\service\BillServiceTest.class
